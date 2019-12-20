@@ -6,12 +6,12 @@ import java.util.Random;
 
 public class Machine {
 
-    public final double leftBorder = -1.;
-    public final double rightBorder = 0.5;
+    public final double leftBorder = -3.;
+    public final double rightBorder = 5;
     public final double diff = rightBorder - leftBorder;
 
     public double func(double x) {
-        return Math.pow(x, 2.) - 1; 
+        return x/100 + 1; 
     }
 
     public Map<Double, Double> dataset = new HashMap<Double, Double>();
