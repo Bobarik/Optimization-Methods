@@ -24,7 +24,7 @@ public class Newton {
             return 4 * (-50 + Math.pow(xs[0], 3) - xs[0] * (xs[1] - 50));
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] y = {xs[0] - delta, xs[1]};
             x = (func(xs) - func(y)) / delta;
             return x;
@@ -36,7 +36,7 @@ public class Newton {
             return 2 * (xs[1] - Math.pow(xs[0], 2));
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] z = {xs[0], xs[1] - delta};
             x = (func(xs) - func(z)) / delta;
             return x;
@@ -48,7 +48,7 @@ public class Newton {
             return 4 * (3 * Math.pow(xs[0], 2) - xs[1] + 50);
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] y = {xs[0] - delta, xs[1]};
             x = (dx(xs, true) - dx(y, true)) / delta;
             return x;
@@ -60,7 +60,7 @@ public class Newton {
             return -4 * xs[0];
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] z = {xs[0], xs[1] - delta};
             x = (dx(xs, true) - dx(z, true)) / delta;
             return x;
@@ -72,7 +72,7 @@ public class Newton {
             return 2;
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] z = {xs[0], xs[1] - delta};
             x = (dy(xs, true) - dy(z, true)) / delta;
             return x;
@@ -110,12 +110,11 @@ public class Newton {
             for (int i = 0; i < 2; i++) {
                 x[i] -= change[i];
             }
-            //System.out.println(x[0] + "   " + x[1]);
         }
         System.out.println("Number of iterations: " + iteration);
         System.out.printf("x, y = %.10f %.10f%n", x[0], x[1]);
         System.out.println("abs(grad) = " + absGrad(x, isAnalyt));
-        System.out.println("Minimum of the function = " + func(x));
+        System.out.println("Min() = " + func(x));
         System.out.println("\n");
         return x;
     }
