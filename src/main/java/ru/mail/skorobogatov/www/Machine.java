@@ -1,7 +1,6 @@
 package ru.mail.skorobogatov.www;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Machine {
@@ -14,7 +13,7 @@ public class Machine {
         return x/100 + 1; 
     }
 
-    public Map<Double, Double> dataset = new HashMap<Double, Double>();
+    public ArrayList<ArrayList<Double>> dataset = new ArrayList<ArrayList<Double>>();
 
     public double makeNoise(double x) {
         Random random = new Random();
@@ -26,7 +25,10 @@ public class Machine {
         for (int i = 0; i < datasetMax; i++) {
             double x = random.nextDouble() * diff - 1;
             double y = makeNoise(func(x));
-            dataset.put(x, y);
+            ArrayList<Double> newArraylist = new ArrayList<Double>();
+            newArraylist.add(x);
+            newArraylist.add(y);
+            dataset.add(newArraylist);
         }
     }
 }
