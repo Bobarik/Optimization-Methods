@@ -16,15 +16,16 @@ public class Machine {
 
     public Map<Double, Double> dataset = new HashMap<Double, Double>();
 
-    public double makeNoise(double x, double dif) {
-        
+    public double makeNoise(double x) {
+        Random random = new Random();
+        return random.nextGaussian() + x;
     }
 
     public void createDataset(int datasetMax) {
         Random random = new Random();
         for (int i = 0; i < datasetMax; i++) {
             double x = random.nextDouble() * diff - 1;
-            double y = func(x);
+            double y = makeNoise(func(x));
             dataset.put(x, y);
         }
     }
