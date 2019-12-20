@@ -24,7 +24,7 @@ public class Newton {
             return 4 * (-50 + Math.pow(xs[0], 3) - xs[0] * (xs[1] - 50));
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] y = {xs[0] - delta, xs[1]};
             x = (func(xs) - func(y)) / delta;
             return x;
@@ -36,7 +36,7 @@ public class Newton {
             return 2 * (xs[1] - Math.pow(xs[0], 2));
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] z = {xs[0], xs[1] - delta};
             x = (func(xs) - func(z)) / delta;
             return x;
@@ -48,7 +48,7 @@ public class Newton {
             return 4 * (3 * Math.pow(xs[0], 2) - xs[1] + 50);
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] y = {xs[0] - delta, xs[1]};
             x = (dx(xs, true) - dx(y, true)) / delta;
             return x;
@@ -60,7 +60,7 @@ public class Newton {
             return -4 * xs[0];
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] z = {xs[0], xs[1] - delta};
             x = (dx(xs, true) - dx(z, true)) / delta;
             return x;
@@ -72,7 +72,7 @@ public class Newton {
             return 2;
         } else {
             double x;
-            double delta = Math.pow(10,-9);
+            double delta = Math.pow(10, -10);
             double [] z = {xs[0], xs[1] - delta};
             x = (dy(xs, true) - dy(z, true)) / delta;
             return x;
