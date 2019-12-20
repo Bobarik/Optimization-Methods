@@ -110,12 +110,11 @@ public class Newton {
             for (int i = 0; i < 2; i++) {
                 x[i] -= change[i];
             }
-            //System.out.println(x[0] + "   " + x[1]);
         }
         System.out.println("Number of iterations: " + iteration);
         System.out.printf("x, y = %.10f %.10f%n", x[0], x[1]);
         System.out.println("abs(grad) = " + absGrad(x, isAnalyt));
-        System.out.println("Minimum of the function = " + func(x));
+        System.out.println("Min() = " + func(x));
         System.out.println("\n");
         return x;
     }
