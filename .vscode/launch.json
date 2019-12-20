@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Newton",
+            "request": "launch",
+            "mainClass": "ru.mail.skorobogatov.www.Newton",
+            "projectName": "Optimization1"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Simplex",
+            "request": "launch",
+            "mainClass": "ru.mail.skorobogatov.www.Simplex",
+            "projectName": "Optimization1"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "ru.mail.skorobogatov.www.App",
+            "projectName": "Optimization1"
+        }
+    ]
+}
