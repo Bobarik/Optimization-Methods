@@ -20,6 +20,18 @@ public class Machine {
         return random.nextGaussian() + x;
     }
 
+    public double lossFunction(Double x, Double yfound) {
+        return Math.pow(func(x) - yfound, 2);
+    }
+
+    public double empyrical() {
+        double emp = 0;
+        for (ArrayList<Double> i : dataset) {
+            emp += lossFunction(i.get(0), i.get(1));
+        }
+        return emp;
+    }
+
     public void createDataset(int datasetMax) {
         Random random = new Random();
         for (int i = 0; i < datasetMax; i++) {
