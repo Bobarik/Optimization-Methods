@@ -20,10 +20,11 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 public class Plotter extends JFrame {
-    public Plotter(final String title, List<ArrayList<Double>> dataset, Double[] regression) {
-
+    public Plotter(final String title) {
         super(title);
-
+    }
+    
+    public void plotterStart(List<ArrayList<Double>> dataset, Double[] regression) {
         final JFreeChart chart = setupPlots(dataset, regression);
         
         final ChartPanel chartPanel = new ChartPanel(chart);
@@ -32,7 +33,7 @@ public class Plotter extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
     }
-    
+
     public JFreeChart setupPlots(List<ArrayList<Double>> dataset, Double[] regression) {
         // Create a single plot containing both the scatter and line
         XYPlot plot = new XYPlot();
@@ -82,8 +83,6 @@ public class Plotter extends JFrame {
         XYDataset collection2 = new XYSeriesCollection(line);
         XYItemRenderer renderer2 = new XYLineAndShapeRenderer(true, false);	// Lines only
         renderer2.setSeriesPaint(0, Color.BLUE);
-        ValueAxis domain2 = new NumberAxis("X");
-        ValueAxis range2 = new NumberAxis("Y");
 
         XYDataset collection3 = new XYSeriesCollection(lineReg);
         XYItemRenderer renderer3 = new XYLineAndShapeRenderer(true, false);	// Lines only
@@ -92,8 +91,6 @@ public class Plotter extends JFrame {
         // Set the line data, renderer, and axis into plot
         plot.setDataset(1, collection2);
         plot.setRenderer(1, renderer2);
-        plot.setDomainAxis(1, domain2);
-        plot.setRangeAxis(1, range2);
 
         plot.setDataset(2, collection3);
         plot.setRenderer(2, renderer3);

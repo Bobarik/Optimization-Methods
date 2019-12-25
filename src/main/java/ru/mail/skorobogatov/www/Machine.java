@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 public class Machine {
 
     public final static double leftBorder = 0;
-    public final static double rightBorder = 4;
+    public final static double rightBorder = 3;
     public final static double epsilon = 0.0000001;
     public final static double diff = rightBorder - leftBorder;
-    public final static int datasetSize = 1000;
+    public final static int datasetSize = 800;
 
     public static double func(double x) {
         return Math.pow(1.1, x) - 2;
@@ -29,12 +29,12 @@ public class Machine {
 
     public static List<ArrayList<Double>> dataset;
 
-    public static double makeNoise(double x) {
+    public static double makeNoise(double y) {
         Random random = new Random();
-        return random.nextGaussian() * 0.001 + x;
+        return random.nextGaussian() * 0.03 + y;
     }
 
-    public static double empyrical(Double[] x) {
+    public static double mseFunc(Double[] x) {
         double emp = 0;
         for (int i = 0; i < dataset.size(); i++) {
             emp += Math.pow(dataset.get(i).get(1) - (x[0] + x[1] * dataset.get(i).get(0)), 2);
@@ -61,7 +61,7 @@ public class Machine {
             double p = args[i] + lambd * vector[i];
             params[i] = p;
         }
-        return empyrical(params);
+        return mseFunc(params);
     }
 
     public static Double goldenMany(double a, double b, Double[] vector, Double[] starterx) {
@@ -127,11 +127,11 @@ public class Machine {
                 x[i] = cuPoint[i] + grad[i] * result;
             }
             
-            if(Math.abs(empyrical(x) - empyrical(cuPoint)) < epsilon || needToTerminate) {
+            if(Math.abs(mseFunc(x) - mseFunc(cuPoint)) < epsilon || needToTerminate) {
                 break;
             }
             cuPoint = x;
-            System.out.println("POINT IS " + empyrical(cuPoint));
+            System.out.println("POINT IS " + mseFunc(cuPoint));
             System.out.println("AT ");
             Arrays.stream(cuPoint).forEach(System.out::println);
             System.out.println("\n");
@@ -152,8 +152,9 @@ public class Machine {
             up += Math.pow(func(x) - point[1] * x - point[0], 2);
             down += Math.pow(dataset.get(i).get(1) - point[1] * x - point[0], 2);;
         }
-        System.out.println("DETERMINATION COEFFICIENT IS " + (up/down));
+        System.out.println("DETERMINATION COEFFICIENT IS " + (1 - (up/down)));
 
-        final Plotter plotter = new Plotter("Regression", dataset, point);
+        final Plotter plotter = new Plotter("Regression");
+        plotter.plotterStart(dataset, point);
     }
 }
