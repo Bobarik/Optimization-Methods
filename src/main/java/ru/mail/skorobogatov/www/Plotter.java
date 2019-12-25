@@ -20,6 +20,8 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 public class Plotter extends JFrame {
+    private static final long serialVersionUID = 184992643403604960L;
+
     public Plotter(final String title) {
         super(title);
     }
