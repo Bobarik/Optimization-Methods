@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Plotter",
+            "request": "launch",
+            "mainClass": "ru.mail.skorobogatov.www.Plotter",
+            "projectName": "Optimization1"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Machine",
+            "request": "launch",
+            "mainClass": "ru.mail.skorobogatov.www.Machine",
+            "projectName": "Optimization1"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Newton",
             "request": "launch",
             "mainClass": "ru.mail.skorobogatov.www.Newton",
